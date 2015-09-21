@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ca.ualberta.cs.marini_reflex" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainMenu"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ReflexTesting"
+            android:label="@string/title_activity_reflex_testing"
+            android:parentActivityName=".MainMenu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.marini_reflex.MainMenu" />
+        </activity>
+        <activity
+            android:name=".GameBuzzer"
+            android:label="@string/title_activity_game_buzzer"
+            android:parentActivityName=".MainMenu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.marini_reflex.MainMenu" />
+        </activity>
+        <activity
+            android:name=".twoplayer"
+            android:label="@string/title_activity_twoplayer"
+            android:parentActivityName=".GameBuzzer" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.marini_reflex.GameBuzzer" />
+        </activity>
+        <activity
+            android:name=".threeplayer"
+            android:label="@string/title_activity_threeplayer"
+            android:parentActivityName=".GameBuzzer" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.marini_reflex.GameBuzzer" />
+        </activity>
+        <activity
+            android:name=".fourplayer"
+            android:label="@string/title_activity_fourplayer"
+            android:parentActivityName=".GameBuzzer" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.marini_reflex.GameBuzzer" />
+        </activity>
+        <activity
+            android:name=".buzzerResult"
+            android:label="@string/title_activity_buzzer_result"
+            android:parentActivityName=".twoplayer" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.marini_reflex.twoplayer" />
+        </activity>
+        <activity
+            android:name=".threePlayerResult"
+            android:label="@string/title_activity_three_player_result"
+            android:parentActivityName=".threeplayer" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.marini_reflex.threeplayer" />
+        </activity>
+        <activity
+            android:name=".fourPlayerResult"
+            android:label="@string/title_activity_four_player_result"
+            android:parentActivityName=".fourplayer" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.marini_reflex.fourplayer" />
+        </activity>
+    </application>
+
+</manifest>
