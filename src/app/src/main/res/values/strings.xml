@@ -11,4 +11,6 @@
     <string name="title_activity_buzzer_result">Result</string>
     <string name="title_activity_three_player_result">Result</string>
     <string name="title_activity_four_player_result">Result</string>
+    <string name="title_activity_statistics">Statistics</string>
+    <string name="title_activity_email">Send E-Mail</string>
 </resources>

@@ -80,6 +80,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.ualberta.cs.marini_reflex.fourplayer" />
         </activity>
+        <activity
+            android:name=".statistics"
+            android:label="@string/title_activity_statistics"
+            android:parentActivityName=".MainMenu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.marini_reflex.MainMenu" />
+        </activity>
+        <activity
+            android:name=".email"
+            android:label="@string/title_activity_email"
+            android:parentActivityName=".statistics" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.marini_reflex.statistics" />
+        </activity>
     </application>
 
 </manifest>
