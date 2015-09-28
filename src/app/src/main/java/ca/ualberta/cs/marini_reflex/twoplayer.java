@@ -1,16 +1,19 @@
 package ca.ualberta.cs.marini_reflex;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class twoplayer extends AppCompatActivity {
+public class TwoPlayer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_twoplayer);
+        Intent masterIntent = getIntent();
     }
 
     @Override
@@ -33,5 +36,19 @@ public class twoplayer extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void player1Wins(View view){
+        Intent intent = new Intent(this, BuzzerResult.class);
+        //set text
+        //increment counter
+        startActivity(intent);
+    }
+
+    public void player2Wins(View view){
+        Intent intent = new Intent(this, BuzzerResult.class);
+        //set text
+        //increment counter
+        startActivity(intent);
     }
 }

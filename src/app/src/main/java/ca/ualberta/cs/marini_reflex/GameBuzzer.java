@@ -1,9 +1,11 @@
 package ca.ualberta.cs.marini_reflex;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class GameBuzzer extends AppCompatActivity {
 
@@ -33,5 +35,20 @@ public class GameBuzzer extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void twoPlayer(View view){
+        Intent intent = new Intent(this, TwoPlayer.class);
+        startActivity(intent);
+    }
+
+    public void threePlayer(View view){
+        Intent intent = new Intent(this, ThreePlayer.class);
+        startActivity(intent);
+    }
+
+    public void fourPlayer(View view){
+        Intent intent = new Intent(this, FourPlayer.class);
+        startActivity(intent);
     }
 }

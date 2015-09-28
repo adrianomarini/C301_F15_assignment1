@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class statistics extends AppCompatActivity {
+public class Statistics extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

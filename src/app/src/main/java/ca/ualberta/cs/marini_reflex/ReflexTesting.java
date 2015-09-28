@@ -34,4 +34,15 @@ public class ReflexTesting extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //Dialog goes here
+
+
+
+    //timer goes here
+
+
+
+
+    //adding stats goes here
 }

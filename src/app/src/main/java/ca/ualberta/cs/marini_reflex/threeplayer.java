@@ -1,16 +1,19 @@
 package ca.ualberta.cs.marini_reflex;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class threeplayer extends AppCompatActivity {
+public class ThreePlayer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_threeplayer);
+        Intent masterIntent = getIntent();
     }
 
     @Override
@@ -33,5 +36,26 @@ public class threeplayer extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void player1Wins(View view){
+        Intent intent = new Intent(this, BuzzerResult.class);
+        //set text
+        //increment counter
+        startActivity(intent);
+    }
+
+    public void player2Wins(View view){
+        Intent intent = new Intent(this, BuzzerResult.class);
+        //set text
+        //increment counter
+        startActivity(intent);
+    }
+
+    public void player3Wins(View view){
+        Intent intent = new Intent(this, BuzzerResult.class);
+        //set text
+        //increment counter
+        startActivity(intent);
     }
 }

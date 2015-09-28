@@ -33,7 +33,7 @@
                 android:value="ca.ualberta.cs.marini_reflex.MainMenu" />
         </activity>
         <activity
-            android:name=".twoplayer"
+            android:name=".TwoPlayer"
             android:label="@string/title_activity_twoplayer"
             android:parentActivityName=".GameBuzzer" >
             <meta-data
@@ -41,7 +41,7 @@
                 android:value="ca.ualberta.cs.marini_reflex.GameBuzzer" />
         </activity>
         <activity
-            android:name=".threeplayer"
+            android:name=".ThreePlayer"
             android:label="@string/title_activity_threeplayer"
             android:parentActivityName=".GameBuzzer" >
             <meta-data
@@ -49,7 +49,7 @@
                 android:value="ca.ualberta.cs.marini_reflex.GameBuzzer" />
         </activity>
         <activity
-            android:name=".fourplayer"
+            android:name=".FourPlayer"
             android:label="@string/title_activity_fourplayer"
             android:parentActivityName=".GameBuzzer" >
             <meta-data
@@ -57,31 +57,15 @@
                 android:value="ca.ualberta.cs.marini_reflex.GameBuzzer" />
         </activity>
         <activity
-            android:name=".buzzerResult"
+            android:name=".BuzzerResult"
             android:label="@string/title_activity_buzzer_result"
-            android:parentActivityName=".twoplayer" >
+            android:parentActivityName=".TwoPlayer" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.cs.marini_reflex.twoplayer" />
+                android:value=".TwoPlayer" />
         </activity>
         <activity
-            android:name=".threePlayerResult"
-            android:label="@string/title_activity_three_player_result"
-            android:parentActivityName=".threeplayer" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.cs.marini_reflex.threeplayer" />
-        </activity>
-        <activity
-            android:name=".fourPlayerResult"
-            android:label="@string/title_activity_four_player_result"
-            android:parentActivityName=".fourplayer" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.cs.marini_reflex.fourplayer" />
-        </activity>
-        <activity
-            android:name=".statistics"
+            android:name=".Statistics"
             android:label="@string/title_activity_statistics"
             android:parentActivityName=".MainMenu" >
             <meta-data
@@ -89,12 +73,12 @@
                 android:value="ca.ualberta.cs.marini_reflex.MainMenu" />
         </activity>
         <activity
-            android:name=".email"
+            android:name=".Email"
             android:label="@string/title_activity_email"
-            android:parentActivityName=".statistics" >
+            android:parentActivityName=".Statistics" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.cs.marini_reflex.statistics" />
+                android:value=".Statistics" />
         </activity>
     </application>
 

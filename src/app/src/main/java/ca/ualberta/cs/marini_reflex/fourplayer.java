@@ -1,16 +1,19 @@
 package ca.ualberta.cs.marini_reflex;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class fourplayer extends AppCompatActivity {
+public class FourPlayer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourplayer);
+        Intent masterIntent = getIntent();
     }
 
     @Override
@@ -33,5 +36,33 @@ public class fourplayer extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void player1Wins(View view){
+        Intent intent = new Intent(this, BuzzerResult.class);
+        //set the text here
+        //increase counter here
+        startActivity(intent);
+    }
+
+    public void player2Wins(View view){
+        Intent intent = new Intent(this, BuzzerResult.class);
+        //set the text here
+        //increase counter here
+        startActivity(intent);
+    }
+
+    public void player3Wins(View view){
+        Intent intent = new Intent(this, BuzzerResult.class);
+        //set text here
+        //increase counter here
+        startActivity(intent);
+    }
+
+    public void player4Wins(View view){
+        Intent intent = new Intent(this, BuzzerResult.class);
+        //set text here
+        //increase counter here
+        startActivity(intent);
     }
 }

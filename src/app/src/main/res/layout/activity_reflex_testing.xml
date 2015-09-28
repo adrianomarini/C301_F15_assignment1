@@ -37,18 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Tap Recorded in 0.0000 Seconds"
-        android:id="@+id/time_textView"
-        android:layout_below="@+id/prompt_textView"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Hey! You tapped too early!"
         android:id="@+id/error_textView"
         android:textColor="#ff1500"
-        android:layout_below="@+id/time_textView"
+        android:layout_below="@+id/prompt_textView"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

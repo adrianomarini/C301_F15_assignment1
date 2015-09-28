@@ -6,7 +6,8 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainMenu">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainMenu"
+    android:clickable="true">
 
     <Button
         android:layout_width="300dp"
@@ -15,7 +16,9 @@
         android:id="@+id/reflex_button"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp" />
+        android:layout_marginTop="45dp"
+        android:onClick="reflexTesting"
+        android:textSize="32dp"/>
 
     <Button
         android:layout_width="300dp"
@@ -24,7 +27,9 @@
         android:id="@+id/buzzer_button"
         android:layout_below="@+id/reflex_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:onClick="gameBuzzer"
+        android:textSize="32dp"/>
 
     <Button
         android:layout_width="300dp"
@@ -32,7 +37,9 @@
         android:text="Standings"
         android:id="@+id/standings_button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="statistics"
+        android:textSize="24dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,6 +49,7 @@
         android:id="@+id/textView"
         android:layout_marginTop="43dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"/>
 
 </RelativeLayout>

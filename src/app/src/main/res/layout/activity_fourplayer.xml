@@ -4,37 +4,40 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="ca.ualberta.cs.marini_reflex.fourplayer">
+    tools:context="ca.ualberta.cs.marini_reflex.FourPlayer">
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="150dp"
         android:layout_height="250dp"
         android:text="Player 3"
         android:id="@+id/p3_button"
         android:layout_below="@+id/p1_Button"
-        android:layout_alignParentStart="true" />
-
+        android:layout_alignParentStart="true"
+        android:onClick="player3Wins"/>
     <Button
-        android:layout_width="175dp"
+        android:layout_width="150dp"
         android:layout_height="250dp"
         android:text="Player 4"
         android:id="@+id/p4_button"
         android:layout_below="@+id/p2_button"
-        android:layout_alignStart="@+id/p2_button" />
+        android:layout_alignStart="@+id/p2_button"
+        android:onClick="player4Wins"/>
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="150dp"
         android:layout_height="250dp"
         android:text="Player 1"
         android:id="@+id/p1_Button"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="player1Wins"/>
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="150dp"
         android:layout_height="250dp"
         android:text="Player 2"
         android:id="@+id/p2_button"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="player2Wins"/>
 </RelativeLayout>
