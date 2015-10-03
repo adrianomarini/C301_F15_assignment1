@@ -21,6 +21,7 @@ THE SOFTWARE.
 
 package ca.ualberta.cs.marini_reflex;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,19 +29,28 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.util.ArrayList;
-
 public class MainMenu extends AppCompatActivity {
 
-    public ArrayList<ReflexTime> reflexTimes = new ArrayList<ReflexTime>();
-    public FourPlayerStanding fourPlayer;
-    public ThreePlayerStanding threePlayer;
-    public TwoPlayerStanding twoPlayer;
+    //http://meta.stackexchange.com/questions/25956/what-is-up-with-the-source-code-license-on-stack-overflow
+    //User: gjpc | Accessed: 03.10.2015
+    //
+    public static Context baseContext;
+    //end attribution
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        //http://stackoverflow.com/questions/2785670/best-way-to-get-an-application-context-into-a-static-method-in-android
+        //User: gjpc | Accessed: 03.10.2015
+        //baseContext (c) by gjpc
+        //baseContext is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License <http://creativecommons.org/licenses/by-sa/3.0/>
+        baseContext = getBaseContext();
+        DataHandler.init(baseContext);
+        //end attribution
+
     }
 
     @Override
@@ -65,12 +75,7 @@ public class MainMenu extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //method: load from file (private) TODO
-
-    //method: write stuff to file TODO
-
-    //Takes button press on the reflex testing button and sends
-    //to the activity
+    //Takes button presses on the menu and sends to appropriate activities
     public void reflexTesting(View view){
         Intent intent = new Intent(this, ReflexTesting.class);
         startActivity(intent);

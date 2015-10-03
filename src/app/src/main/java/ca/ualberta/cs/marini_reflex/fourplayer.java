@@ -1,6 +1,7 @@
 package ca.ualberta.cs.marini_reflex;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -40,29 +41,29 @@ public class FourPlayer extends AppCompatActivity {
 
     public void player1Wins(View view){
         Intent intent = new Intent(this, BuzzerResult.class);
-        //set the text here
-        //increase counter here
+        DataHandler.fourPlayerP1();
+        intent.putExtra("winner", 1);
         startActivity(intent);
     }
 
     public void player2Wins(View view){
         Intent intent = new Intent(this, BuzzerResult.class);
-        //set the text here
-        //increase counter here
+        DataHandler.fourPlayerP2();
+        intent.putExtra("winner", 2);
         startActivity(intent);
     }
 
     public void player3Wins(View view){
         Intent intent = new Intent(this, BuzzerResult.class);
-        //set text here
-        //increase counter here
+        DataHandler.fourPlayerP3();
+        intent.putExtra("winner", 3);
         startActivity(intent);
     }
 
     public void player4Wins(View view){
         Intent intent = new Intent(this, BuzzerResult.class);
-        //set text here
-        //increase counter here
+        DataHandler.fourPlayerP4();
+        intent.putExtra("winner", 4);
         startActivity(intent);
     }
 }
