@@ -3,7 +3,7 @@
 
 ## Author: Adriano Marini | marini@ualberta.ca
 
-###YouTube Demo: 
+###YouTube Demo: https://youtu.be/gM1lasSV7d8
 
 #### This app takes ideas / methods of problem solving from:
 
