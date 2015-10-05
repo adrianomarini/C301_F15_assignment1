@@ -31,26 +31,20 @@ import android.view.View;
 
 public class MainMenu extends AppCompatActivity {
 
-    //http://meta.stackexchange.com/questions/25956/what-is-up-with-the-source-code-license-on-stack-overflow
-    //User: gjpc | Accessed: 03.10.2015
-    //
     public static Context baseContext;
-    //end attribution
 
+    @Override
+    public void onBackPressed(){
+        System.exit(1);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-
-        //http://stackoverflow.com/questions/2785670/best-way-to-get-an-application-context-into-a-static-method-in-android
-        //User: gjpc | Accessed: 03.10.2015
-        //baseContext (c) by gjpc
-        //baseContext is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License <http://creativecommons.org/licenses/by-sa/3.0/>
-        baseContext = getBaseContext();
-        DataHandler.init(baseContext);
-        //end attribution
-
+        DataHandler dataHandler = new DataHandler();
+        dataHandler.init(getApplicationContext());
+        baseContext = getApplicationContext();
     }
 
     @Override

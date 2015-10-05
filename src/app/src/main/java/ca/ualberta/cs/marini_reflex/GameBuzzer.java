@@ -32,6 +32,12 @@ import android.view.View;
 public class GameBuzzer extends AppCompatActivity {
 
     @Override
+    public void onBackPressed(){
+        android.os.Process.killProcess(android.os.Process.myPid());
+        super.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_buzzer);

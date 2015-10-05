@@ -13,7 +13,9 @@
         android:id="@+id/clear_Button"
         android:layout_marginStart="41dp"
         android:layout_alignTop="@+id/email_Button"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:onClick="delete"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,11 +26,46 @@
         android:layout_marginStart="40dp"
         android:onClick="emailStats"/>
 
-    <ListView
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="400dp"
-        android:id="@+id/StatsView"
-        android:choiceMode="none"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/reflexStats"
+        android:textSize="20dp"
+        android:layout_above="@+id/textView3"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="P1: \n P2 \n p3"
+        android:id="@+id/buzzStats"
+        android:textSize="20dp"
+        android:layout_above="@+id/clear_Button"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Buzzer Statistics"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/buzzStats"
+        android:layout_alignEnd="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Reflex Statistics"
+        android:id="@+id/textView4"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

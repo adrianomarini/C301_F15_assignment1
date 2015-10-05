@@ -36,6 +36,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class DataHandler {
 
@@ -59,7 +61,7 @@ public class DataHandler {
 
     //Opens file and populates data from the file.sav
     //Catches file not found error and initiates variables with blank
-    public static void init(Context ctx){
+    public void init(Context ctx){
         try{
 
             //create the input readers
@@ -106,11 +108,11 @@ public class DataHandler {
 
             FileOutputStream fos1 = ctx.openFileOutput(ARRAYFILE, 0);
             BufferedWriter out1 = new BufferedWriter(new OutputStreamWriter(fos1));
-            FileOutputStream fos2 = ctx.openFileOutput(ARRAYFILE, 0);
+            FileOutputStream fos2 = ctx.openFileOutput(TWOPLAYERFILE, 0);
             BufferedWriter out2 = new BufferedWriter(new OutputStreamWriter(fos2));
-            FileOutputStream fos3 = ctx.openFileOutput(ARRAYFILE, 0);
+            FileOutputStream fos3 = ctx.openFileOutput(THREEPLAYERFILE, 0);
             BufferedWriter out3 = new BufferedWriter(new OutputStreamWriter(fos3));
-            FileOutputStream fos4 = ctx.openFileOutput(ARRAYFILE, 0);
+            FileOutputStream fos4 = ctx.openFileOutput(FOURPLAYERFILE, 0);
             BufferedWriter out4 = new BufferedWriter(new OutputStreamWriter(fos4));
 
 
@@ -219,7 +221,7 @@ public class DataHandler {
 
     //clears all data
     // for use with clear button
-    public static void clear(){
+    public static void clearAllData(){
         reflexTimes.clear();
         twoPlayer.setData(0);
         twoPlayer.setPlayer2(0);
@@ -239,7 +241,7 @@ public class DataHandler {
         int temp;
         String tempString;
         //create string with standings, divided logically with labels
-        standings =  "Two Player: P1: ";
+        standings =  "Two Player - P1: ";
         temp = twoPlayer.getData();
         tempString = Integer.toString(temp);
         standings += tempString;
@@ -248,7 +250,7 @@ public class DataHandler {
         tempString = Integer.toString(temp);
         standings += tempString;
         standings += "\n";
-        standings += "Three Player: P1: ";
+        standings += "Three Player - P1: ";
         temp = threePlayer.getData();
         tempString = Integer.toString(temp);
         standings += tempString;
@@ -260,7 +262,7 @@ public class DataHandler {
         temp = threePlayer.getPlayer3();
         tempString = Integer.toString(temp);
         standings += tempString;
-        standings += "\nFour Player: P1: ";
+        standings += "\nFour Player - P1: ";
         temp = fourPlayer.getData();
         tempString = Integer.toString(temp);
         standings += tempString;
@@ -280,84 +282,296 @@ public class DataHandler {
         return standings;
     }
 
-    //todo return max of reflex times: While loop - continuous checking
-    public int max(){
+    public static int max(){
         int maximum = 0;
-
+        for(ReflexTime temp : reflexTimes){
+            int cur = temp.getData();
+            if(cur > maximum){
+                maximum = cur;
+            }
+        }
         return maximum;
     }
 
-    //todo return min of reflex times: While Loop - continuous checking
-    public int min(){
-        int minimum = 0;
-
+    public static  int min(){
+        int minimum;
+        ReflexTime temp = reflexTimes.get(0);
+        minimum = temp.getData();
+        for(ReflexTime temp0 : reflexTimes){
+            int cur = temp0.getData();
+            if(cur < minimum){
+                minimum = cur;
+            }
+        }
         return minimum;
     }
 
-    //todo return average of reflex times: while loop - continuous adding
-    public int average(){
+    public static int average(){
         int average = 0;
-
+        int count = 0;
+        for(ReflexTime temp : reflexTimes){
+            int cur = temp.getData();
+            average += cur;
+            count++;
+        }
+        average = average / count;
         return average;
     }
 
-    //todo return median of reflex times: while loop - continuous checking
-    public int median(){
-        int median = 0;
+    //http://stackoverflow.com/questions/32184946/finding-the-arrays-median
+    //User: LanguidSquid | 03.10.2015
+    //Modified from original
+    public static int median(){
+        int median;
+        List<Integer> sorted = new ArrayList<>();
+        for(ReflexTime temp : reflexTimes){
+            int cur = temp.getData();
+            sorted.add(cur);
+        }
+        Collections.sort(sorted);
+        int medianInd = (sorted.size()) / 2;
+        median = sorted.get(medianInd);
+        return median;
+    }
+    //end attribution
 
+
+    public static int tenMax(){
+        int maximum;
+        ReflexTime temp;
+        int length = reflexTimes.size()-1;
+        temp = reflexTimes.get((reflexTimes.size() - 1));
+        maximum = temp.getData();
+        for(int i = length-1; i > (length-10); i--){
+            temp = reflexTimes.get(i);
+            int cur = temp.getData();
+            if(cur > maximum) maximum = cur;
+        }
+        return maximum;
+    }
+
+    public static int tenMin(){
+        int minimum;
+        ReflexTime temp;
+        int length = reflexTimes.size()-1;
+        temp = reflexTimes.get((reflexTimes.size() - 1));
+        minimum = temp.getData();
+        for(int i = length-1; i > (length-10); i--){
+            temp = reflexTimes.get(i);
+            int cur = temp.getData();
+            if(cur < minimum) minimum = cur;
+        }
+        return minimum;
+    }
+
+    public static int tenAverage(){
+        int average = 0;
+        ReflexTime temp;
+        int length = reflexTimes.size()-1;
+        for(int i = length; i > (length-10); i--){
+            temp = reflexTimes.get(i);
+            int cur = temp.getData();
+            average += cur;
+        }
+        average = average / 10;
+        return average;
+    }
+
+    public static int tenMedian(){
+        int median;
+        List<Integer> sorted = new ArrayList<>();
+        ReflexTime temp;
+        int length = reflexTimes.size()-1;
+        for(int i = length; i > (length-10); i--){
+            temp = reflexTimes.get(i);
+            int cur = temp.getData();
+            sorted.add(cur);
+        }
+        Collections.sort(sorted);
+        median = sorted.get((sorted.size()/2));
         return median;
     }
 
 
-    //todo all above for 10: for loops w. Error Handling
-    public int tenMax(){
-        int maximum = 0;
-
+    public static int hundredMax(){
+        int maximum;
+        ReflexTime temp;
+        int length = reflexTimes.size()-1;
+        temp = reflexTimes.get((reflexTimes.size() - 1));
+        maximum = temp.getData();
+        for(int i = length-1; i > (length-100); i--){
+            temp = reflexTimes.get(i);
+            int cur = temp.getData();
+            if(cur > maximum) maximum = cur;
+        }
         return maximum;
     }
 
-    public int tenMin(){
-        int minimum = 0;
-
+    public static int hundredMin(){
+        int minimum;
+        ReflexTime temp;
+        int length = reflexTimes.size()-1;
+        temp = reflexTimes.get((reflexTimes.size() - 1));
+        minimum = temp.getData();
+        for(int i = length-1; i > (length-100); i--){
+            temp = reflexTimes.get(i);
+            int cur = temp.getData();
+            if(cur < minimum) minimum = cur;
+        }
         return minimum;
     }
 
-    public int tenAverage(){
+    public static int hundredAverage(){
         int average = 0;
-
+        ReflexTime temp;
+        int length = reflexTimes.size()-1;
+        for(int i = length; i > (length-100); i--){
+            temp = reflexTimes.get(i);
+            int cur = temp.getData();
+            average += cur;
+        }
+        average = average / 100;
         return average;
     }
 
-    public int tenMedian(){
-        int median = 0;
-
+    public static int hundredMedian(){
+        int median;
+        List<Integer> sorted = new ArrayList<>();
+        ReflexTime temp;
+        int length = reflexTimes.size()-1;
+        for(int i = length; i > (length-100); i--){
+            temp = reflexTimes.get(i);
+            int cur = temp.getData();
+            sorted.add(cur);
+        }
+        Collections.sort(sorted);
+        median = sorted.get((sorted.size()/2));
         return median;
     }
 
-    //todo all above for 100: for loops w. Error Handling
 
-    public int hundredMax(){
-        int maximum = 0;
+    public static String getReflexStats(){
+        String returnable;
+        int temp;
+        String tempString;
+        int length = reflexTimes.size();
 
-        return maximum;
-    }
+        if(length == 0){
+            returnable = "Stats not possible for lack of data";
+            return returnable;
+        }
 
-    public int hundredMinimum(){
-        int minimum = 0;
+        if(length>=100){
+            returnable = "Entire History: Max: ";
+            temp = max();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Min: ";
+            temp = min();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Average: ";
+            temp = average();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Median: ";
+            temp = median();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += "\n\nLast Ten: Max: ";
+            temp = tenMax();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Min: ";
+            temp = tenMin();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Average: ";
+            temp = tenAverage();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Median: ";
+            temp = tenMedian();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += "\n\nLast Hundred: Max: ";
+            temp = hundredMax();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Min:  ";
+            temp = hundredMin();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Average: ";
+            temp = hundredAverage();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Median: ";
+            temp = hundredMedian();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            return returnable;
+        }
 
-        return minimum;
-    }
+        if(length >= 10){
+            returnable = "Entire History: Max: ";
+            temp = max();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Min: ";
+            temp = min();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Average: ";
+            temp = average();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Median: ";
+            temp = median();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += "\n\nLast Ten: Max: ";
+            temp = tenMax();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Min: ";
+            temp = tenMin();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Average: ";
+            temp = tenAverage();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += " Median: ";
+            temp = tenMedian();
+            tempString = Integer.toString(temp);
+            returnable += tempString;
+            returnable += "\n\nLast Hundred is not possible for lack of data ";
+            return returnable;
+        }
 
-    public int hundredAverage(){
-        int average = 0;
 
-        return average;
-    }
+        returnable = "Entire History: Max: ";
+        temp = max();
+        tempString = Integer.toString(temp);
+        returnable += tempString;
+        returnable += " Min: ";
+        temp = min();
+        tempString = Integer.toString(temp);
+        returnable += tempString;
+        returnable += " Average: ";
+        temp = average();
+        tempString = Integer.toString(temp);
+        returnable += tempString;
+        returnable += " Median: ";
+        temp = median();
+        tempString = Integer.toString(temp);
+        returnable += tempString;
+        returnable += "\n\nLast Ten not possible for lack of data";
+        returnable += "\n\nLast Hundred not possible for lack of data";
 
-    public int hundredMedian(){
-        int median = 0;
-
-        return median;
+        return returnable;
     }
 
 }
+

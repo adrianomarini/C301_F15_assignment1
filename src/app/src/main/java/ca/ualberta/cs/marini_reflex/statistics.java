@@ -25,12 +25,14 @@ package ca.ualberta.cs.marini_reflex;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -39,11 +41,16 @@ public class Statistics extends AppCompatActivity {
     private ArrayList<String> info = new ArrayList<>();
 
     @Override
+    public void onBackPressed(){
+        System.exit(1);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
-        populate();
         display();
+        Button clearbutton = (Button) findViewById(R.id.clear_Button);
     }
 
     @Override
@@ -68,29 +75,20 @@ public class Statistics extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void emailStats(){
+    public void emailStats(View view){
         Intent intent = new Intent(this, Email.class);
         startActivity(intent);
     }
 
-    public void populate(){
-
+    public void delete(View v){
+        DataHandler.clearAllData();
+        display();
     }
 
     public void display(){
-        ListView infoList = (ListView) findViewById(R.id.StatsView);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.activity_statistics, info);
-        infoList.setAdapter(adapter);
-        Button clear = (Button) findViewById(R.id.clear_Button);
-        clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setResult(RESULT_OK);
-                info.clear();
-                adapter.notifyDataSetChanged();
-                DataHandler.clear();
-            }
-        });
-
+        TextView reflex = (TextView) findViewById(R.id.reflexStats);
+        TextView buzzer = (TextView) findViewById(R.id.buzzStats);
+        reflex.setText(DataHandler.getReflexStats());
+        buzzer.setText(DataHandler.getStandings());
     }
 }

@@ -6,7 +6,35 @@
         jumboMode="false"
         revision="23.0.0"
         sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="/Users/adrianomarini/Desktop/CS/_F15/CS301/C301_F15_assignment1/src/app/build/intermediates/pre-dexed/debug/gson-2.3.1-3647189e9f479d8e9cd2eec03b7f739212d2b82d.jar" />
+        <dex dex="/Users/adrianomarini/Desktop/CS/_F15/CS301/C301_F15_assignment1/src/app/build/intermediates/pre-dexed/release/gson-2.3.1-3647189e9f479d8e9cd2eec03b7f739212d2b82d.jar" />
+    </item>
+    <item
+        jar="/Users/adrianomarini/Desktop/CS/_F15/CS301/C301_F15_assignment1/src/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
+        <dex dex="/Users/adrianomarini/Desktop/CS/_F15/CS301/C301_F15_assignment1/src/app/build/intermediates/pre-dexed/release/classes-ad74fb60541e70d7a541128dc36496b38aa168a1.jar" />
+    </item>
+    <item
+        jar="/Users/adrianomarini/Desktop/CS/_F15/CS301/C301_F15_assignment1/src/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/Users/adrianomarini/Desktop/CS/_F15/CS301/C301_F15_assignment1/src/app/build/intermediates/pre-dexed/release/internal_impl-23.0.0-2787d9888fc1e0c43c5a3653c5f2d337819bd7cb.jar" />
+    </item>
+    <item
+        jar="/Users/adrianomarini/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/Users/adrianomarini/Desktop/CS/_F15/CS301/C301_F15_assignment1/src/app/build/intermediates/pre-dexed/release/support-annotations-23.0.0-278572e179171e658e904a4ee3d7b68e519e5f97.jar" />
+    </item>
+    <item
+        jar="/Users/adrianomarini/Desktop/CS/_F15/CS301/C301_F15_assignment1/src/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="/Users/adrianomarini/Desktop/CS/_F15/CS301/C301_F15_assignment1/src/app/build/intermediates/pre-dexed/release/classes-9bca0285dc409243765b1fc9b0b65b55188e7399.jar" />
     </item>
 
 </items>
