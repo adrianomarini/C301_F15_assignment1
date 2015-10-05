@@ -22,11 +22,11 @@ THE SOFTWARE.
 
 package ca.ualberta.cs.marini_reflex;
 
-/**
- * Created by adrianomarini on 15-09-26.
- */
+//class to hold reflex time record
+
 public class ReflexTime extends StandingObject {
 
+    //takes on the form of the super class, no additional code.
     public ReflexTime(int data) {
         super(data);
     }

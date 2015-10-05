@@ -22,19 +22,25 @@ THE SOFTWARE.
 
 package ca.ualberta.cs.marini_reflex;
 
-/**
- * Created by adrianomarini on 15-09-26.
- */
+//object that extends the ABC StandingObject to store data
+//  for the three player mode
+//Uses superclass data attribute to store Player1
+
 public class ThreePlayerStanding extends StandingObject {
     private int player2;
     private int player3;
 
+    //standard constructor. Ideal initialization (0,0,0).
+    // sets and makes all of the local variables
     public ThreePlayerStanding(int data, int player2, int player3) {
         super(data);
         this.player2 = player2;
         this.player3 = player3;
     }
 
+
+    //standard getters and setters for players 2 and 3
+    //player 1 uses superclass' getter and setter.
     public int getPlayer2() {
         return player2;
     }

@@ -30,6 +30,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+//Two player mode of GameBuzzer.
+//Receives Intent from GameBuzzer based on selection of mode
+
 public class TwoPlayer extends AppCompatActivity {
 
     @Override
@@ -41,7 +44,7 @@ public class TwoPlayer extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_twoplayer, menu);
         return true;
     }
@@ -61,16 +64,28 @@ public class TwoPlayer extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Buttons in view are set to OnClick direct to these methods
+    //Depending on which button is pushed, one is called indicating the winner.
     public void player1Wins(View view){
+        //set up intent for result view
         Intent intent = new Intent(this, BuzzerResult.class);
+
+        //increment score
         DataHandler.twoPlayerP1();
+
+        //call result view
         intent.putExtra("winner", 1);
         startActivity(intent);
     }
 
     public void player2Wins(View view){
+        //set up intent
         Intent intent = new Intent(this, BuzzerResult.class);
+
+        //increment score
         DataHandler.twoPlayerP2();
+
+        //call result view
         intent.putExtra("winner", 2);
         startActivity(intent);
     }

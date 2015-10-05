@@ -22,17 +22,21 @@ THE SOFTWARE.
 
 package ca.ualberta.cs.marini_reflex;
 
-/**
- * Created by adrianomarini on 15-09-26.
- */
+//object to hold standings for the two player mode of GameBuzzer
+//player1 held as super class' data attribute
+
 public class TwoPlayerStanding extends StandingObject {
     private int player2;
 
+    //constructor, takes the arguments. Ideally, default (0,0)
+    //sets player 1 to be super's data.
     public TwoPlayerStanding(int data, int player2) {
         super(data);
         this.player2 = player2;
     }
 
+    //standard getter and setter for the class' local storage
+    //  of player 2.
     public int getPlayer2() {
         return player2;
     }

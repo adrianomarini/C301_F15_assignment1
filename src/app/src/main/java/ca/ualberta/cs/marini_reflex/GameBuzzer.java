@@ -29,6 +29,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+//activity where user can choose mode of play for GameBuzzer.
+
 public class GameBuzzer extends AppCompatActivity {
 
     @Override
@@ -45,7 +47,7 @@ public class GameBuzzer extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_game_buzzer, menu);
         return true;
     }
@@ -65,6 +67,9 @@ public class GameBuzzer extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Button methods
+    //  Based on which button is pressed, prepare intent and send to proper
+    //      activity.
     public void twoPlayer(View view){
         Intent intent = new Intent(this, TwoPlayer.class);
         startActivity(intent);

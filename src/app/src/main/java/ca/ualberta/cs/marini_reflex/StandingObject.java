@@ -22,12 +22,13 @@ THE SOFTWARE.
 
 package ca.ualberta.cs.marini_reflex;
 
-/**
- * Created by adrianomarini on 15-09-26.
- */
+//Abstract base class to hold data regarding standings
+
 public abstract class StandingObject {
+    //this will serve both the purpose of Player1 and of ReflexTime
     private int data;
 
+    //standard constructor, getter, and setter.
     public StandingObject(int data) {
         this.data = data;
     }

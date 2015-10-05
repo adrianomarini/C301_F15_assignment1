@@ -31,25 +31,35 @@ import android.view.View;
 
 public class MainMenu extends AppCompatActivity {
 
+    //http://stackoverflow.com/questions/3625837/android-what-is-
+    // wrong-with-openfileoutput
+    //Original Author: Naikus | Accessed: 03.10.2015
+    //http://stackoverflow.com/questions/2785670/best-way-to-get-
+    // an-application-context-into-a-static-method-in-android
+    //Original Author: gjpc | Accessed: 04.10.2015
+    //  Adapted use of Context from the top answer: No code copied directly
     public static Context baseContext;
 
     @Override
     public void onBackPressed(){
-        System.exit(1);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        super.onBackPressed();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        //instantiate the data handler class
         DataHandler dataHandler = new DataHandler();
         dataHandler.init(getApplicationContext());
+        //get context for use in the DataHandler later on.
         baseContext = getApplicationContext();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_main_menu, menu);
         return true;
     }

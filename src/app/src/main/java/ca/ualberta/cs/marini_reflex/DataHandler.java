@@ -51,7 +51,8 @@ public class DataHandler {
     private static ThreePlayerStanding threePlayer;
     private static TwoPlayerStanding twoPlayer;
 
-    //https://github.com/joshua2ua/lonelyTwitter | Fork: https://github.com/adrianomarini/lonelyTwitter/
+    //https://github.com/joshua2ua/lonelyTwitter
+    // Fork: https://github.com/adrianomarini/lonelyTwitter/
     //Original Author: Joshua Campbell | Accessed: 03.10.2015
     //  Used as template for designing use of Gsons
 
@@ -80,7 +81,9 @@ public class DataHandler {
             Gson threePlayerGson = new Gson();
             Gson fourPlayerGson = new Gson();
 
-            ////http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html, 03.10.2015
+            ////http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/
+            // com/google/gson/Gson.html, 03.10.2015
+            //create the type tokens
             Type arrayListType = new TypeToken<ArrayList<ReflexTime>>() {}.getType();
             Type twoPlayerStandingType = new TypeToken<TwoPlayerStanding>() {}.getType();
             Type threePlayerStandingType = new TypeToken<ThreePlayerStanding>() {}.getType();
@@ -92,6 +95,7 @@ public class DataHandler {
             fourPlayer = fourPlayerGson.fromJson(in3, fourPlayerStandingType);
             reflexTimes = arrayGson.fromJson(in4, arrayListType);
         }
+        //If the file doesn't exist, instantiate all of the variables.
         catch (FileNotFoundException e){
             reflexTimes = new ArrayList<>();
             twoPlayer = new TwoPlayerStanding(0,0);
@@ -106,6 +110,7 @@ public class DataHandler {
     public static void save(Context ctx){
         try{
 
+            //create writers and output streams
             FileOutputStream fos1 = ctx.openFileOutput(ARRAYFILE, 0);
             BufferedWriter out1 = new BufferedWriter(new OutputStreamWriter(fos1));
             FileOutputStream fos2 = ctx.openFileOutput(TWOPLAYERFILE, 0);
@@ -115,17 +120,19 @@ public class DataHandler {
             FileOutputStream fos4 = ctx.openFileOutput(FOURPLAYERFILE, 0);
             BufferedWriter out4 = new BufferedWriter(new OutputStreamWriter(fos4));
 
-
+            //create Gson objects
             Gson arrayGson = new Gson();
             Gson twoPlayerGson = new Gson();
             Gson threePlayerGson = new Gson();
             Gson fourPlayerGson = new Gson();
 
+            //write Gson objects to file
             twoPlayerGson.toJson(twoPlayer, out1);
             threePlayerGson.toJson(threePlayer,out2);
             fourPlayerGson.toJson(fourPlayer,out3);
             arrayGson.toJson(reflexTimes, out4);
 
+            //flush writers and close files.
             out1.flush();
             fos1.close();
             out2.flush();
@@ -135,21 +142,21 @@ public class DataHandler {
             out4.flush();
             fos4.close();
         }
-
+        //if no file, reset all.
         catch (FileNotFoundException e){
             reflexTimes = new ArrayList<>();
             twoPlayer = new TwoPlayerStanding(0,0);
             threePlayer = new ThreePlayerStanding(0,0,0);
             fourPlayer = new FourPlayerStanding(0,0,0,0);
         }
-
+        //if IO error, fail.
         catch (IOException e){
             throw new RuntimeException(e);
         }
     }
     //end attribution (Joshua Campbell)
 
-    //stable add data to standings
+    //stable add data to standings (all contexts of standings)
     public static void addReflexTime(int time){
         ReflexTime temp = new ReflexTime(time);
         reflexTimes.add(temp);
@@ -282,6 +289,7 @@ public class DataHandler {
         return standings;
     }
 
+    //return max of entire data set
     public static int max(){
         int maximum = 0;
         for(ReflexTime temp : reflexTimes){
@@ -293,6 +301,7 @@ public class DataHandler {
         return maximum;
     }
 
+    //return min of entire data set
     public static  int min(){
         int minimum;
         ReflexTime temp = reflexTimes.get(0);
@@ -306,6 +315,7 @@ public class DataHandler {
         return minimum;
     }
 
+    //return average of entire data set
     public static int average(){
         int average = 0;
         int count = 0;
@@ -321,6 +331,7 @@ public class DataHandler {
     //http://stackoverflow.com/questions/32184946/finding-the-arrays-median
     //User: LanguidSquid | 03.10.2015
     //Modified from original
+    //return median of entire data set
     public static int median(){
         int median;
         List<Integer> sorted = new ArrayList<>();
@@ -335,7 +346,7 @@ public class DataHandler {
     }
     //end attribution
 
-
+    //return max of the most recent 10 data points
     public static int tenMax(){
         int maximum;
         ReflexTime temp;
@@ -350,6 +361,7 @@ public class DataHandler {
         return maximum;
     }
 
+    //return min of the 10 most recent data points
     public static int tenMin(){
         int minimum;
         ReflexTime temp;
@@ -364,6 +376,7 @@ public class DataHandler {
         return minimum;
     }
 
+    //return Average of the 10 most recent data points
     public static int tenAverage(){
         int average = 0;
         ReflexTime temp;
@@ -377,6 +390,7 @@ public class DataHandler {
         return average;
     }
 
+    //return median of the 10 most recent data points
     public static int tenMedian(){
         int median;
         List<Integer> sorted = new ArrayList<>();
@@ -392,7 +406,7 @@ public class DataHandler {
         return median;
     }
 
-
+    //return max of last 100 records
     public static int hundredMax(){
         int maximum;
         ReflexTime temp;
@@ -407,6 +421,7 @@ public class DataHandler {
         return maximum;
     }
 
+    //return min of last 100 records
     public static int hundredMin(){
         int minimum;
         ReflexTime temp;
@@ -421,6 +436,7 @@ public class DataHandler {
         return minimum;
     }
 
+    //return average of last 100 records
     public static int hundredAverage(){
         int average = 0;
         ReflexTime temp;
@@ -433,7 +449,7 @@ public class DataHandler {
         average = average / 100;
         return average;
     }
-
+    //return median of last 100 records
     public static int hundredMedian(){
         int median;
         List<Integer> sorted = new ArrayList<>();
@@ -449,18 +465,19 @@ public class DataHandler {
         return median;
     }
 
-
+    //get string that shows all reflex stats
     public static String getReflexStats(){
         String returnable;
         int temp;
         String tempString;
         int length = reflexTimes.size();
 
+        //if there is no data, do nothing
         if(length == 0){
             returnable = "Stats not possible for lack of data";
             return returnable;
         }
-
+        //if there are 100 data points, do all calculations
         if(length>=100){
             returnable = "Entire History: Max: ";
             temp = max();
@@ -513,6 +530,8 @@ public class DataHandler {
             return returnable;
         }
 
+        //if there are between 10 and 100 data points, don't
+        // do the hundred calculations
         if(length >= 10){
             returnable = "Entire History: Max: ";
             temp = max();
@@ -550,7 +569,7 @@ public class DataHandler {
             return returnable;
         }
 
-
+        //if there are less than 10 points, only do the basic calculations
         returnable = "Entire History: Max: ";
         temp = max();
         tempString = Integer.toString(temp);

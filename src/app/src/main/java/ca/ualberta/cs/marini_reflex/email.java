@@ -31,6 +31,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+//emails the standings to a person.
+
 public class Email extends AppCompatActivity {
 
     @Override
@@ -43,6 +45,8 @@ public class Email extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email);
         Intent masterIntent = getIntent();
+
+        //watch for button clicks
         Button send = (Button) findViewById(R.id.email_Button);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,12 +58,12 @@ public class Email extends AppCompatActivity {
                 //Accessed 04.10.2015 | Modified by Adriano Marini
                 //http://developer.android.com/guide/components/intents-common.html#Email
 
+                //create the email message
                 String email = new StringBuilder().append("Reflex Statistics: \n")
                         .append(DataHandler.getReflexStats()).append("\n\nBuzzer Statistics: \n")
                         .append(DataHandler.getStandings()).toString();
 
-                Uri message = Uri.parse(email);
-
+                //create and send the intent to the system
                 Intent sender = new Intent(Intent.ACTION_SENDTO);
                 sender.setType("*/*");
                 sender.setData(Uri.parse("mailto:"));
@@ -74,7 +78,7 @@ public class Email extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_email, menu);
         return true;
     }

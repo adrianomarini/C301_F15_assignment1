@@ -29,6 +29,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+//Three player mode of GameBuzzer
+
 public class ThreePlayer extends AppCompatActivity {
 
     @Override
@@ -40,7 +42,7 @@ public class ThreePlayer extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_threeplayer, menu);
         return true;
     }
@@ -60,23 +62,40 @@ public class ThreePlayer extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Buttons in view are set to OnClick direct to these methods
+    //Depending on which button is pushed, one is called indicating the winner.
     public void player1Wins(View view){
+        //prepare intent
         Intent intent = new Intent(this, BuzzerResult.class);
+
+        //increment score
         DataHandler.threePlayerP1();
+
+        // call result view
         intent.putExtra("winner", 1);
         startActivity(intent);
     }
 
     public void player2Wins(View view){
+        //prepare intent
         Intent intent = new Intent(this, BuzzerResult.class);
+
+        //increment score
         DataHandler.threePlayerP2();
+
+        //call result view
         intent.putExtra("winner", 2);
         startActivity(intent);
     }
 
     public void player3Wins(View view){
+        //prepare intent
         Intent intent = new Intent(this, BuzzerResult.class);
+
+        //increment score
         DataHandler.threePlayerP3();
+
+        //call result view
         intent.putExtra("winner", 3);
         startActivity(intent);
     }

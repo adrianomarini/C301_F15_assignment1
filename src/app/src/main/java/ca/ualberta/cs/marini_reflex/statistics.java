@@ -36,10 +36,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+//Activity for the statistics view of the main menu
+
 public class Statistics extends AppCompatActivity {
 
     private ArrayList<String> info = new ArrayList<>();
 
+    //kill the activity if back is pressed.
     @Override
     public void onBackPressed(){
         System.exit(1);
@@ -55,7 +58,7 @@ public class Statistics extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_statistics, menu);
         return true;
     }
@@ -75,19 +78,25 @@ public class Statistics extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //button listener; if button is clicked, go to email activity.
     public void emailStats(View view){
         Intent intent = new Intent(this, Email.class);
         startActivity(intent);
     }
 
+    //clear button. Delete all stored data from the app.
     public void delete(View v){
         DataHandler.clearAllData();
         display();
     }
 
+    //display the stats.
     public void display(){
+        //get the strings from DataHandler
         TextView reflex = (TextView) findViewById(R.id.reflexStats);
         TextView buzzer = (TextView) findViewById(R.id.buzzStats);
+
+        //Set the text views for display.
         reflex.setText(DataHandler.getReflexStats());
         buzzer.setText(DataHandler.getStandings());
     }

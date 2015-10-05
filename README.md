@@ -3,6 +3,8 @@
 
 ## Author: Adriano Marini | marini@ualberta.ca
 
+###YouTube Demo: 
+
 #### This app takes ideas / methods of problem solving from:
 
 LonelyTwitter (CMPUT301 Lab Program) - https://github.com/joshua2ua/lonelyTwitter
@@ -47,10 +49,6 @@ StackOverflow -
     • http://stackoverflow.com/questions/2115758/how-to-display-alert-dialog-in-android (User: David Hedlund)
     • //http://stackoverflow.com/questions/4300653/conversion-of-nanoseconds-to-milliseconds-and-nanoseconds-999999-in-java (User: Shawn Vader)
     
-
-
-
-
 
 ** Please see inline citations in code files for the above **
 
